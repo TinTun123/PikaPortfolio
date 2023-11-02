@@ -25,7 +25,7 @@ class UpdateSliderRequest extends FormRequest
             'image' => 'required',
             'has_button' => 'required|boolean',
             'button_text' => 'required_if:has_button,1|max:30',
-            'button_link' => 'required_if:has_button,1|url',
+            'button_link' => 'required_if:has_button,1',
         ];
     }
 }

@@ -26,7 +26,6 @@ const links = [
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-
     const activeLinkClass = 'border-none sm:border border-t-0 border-b-primary border-b-[3px] text-primary border-l-0';
     return (
         <div className="flex px-2 lg:px-48 sticky z-[1000000] top-0 bg-white py-4 justify-between items-center shadow-lg ">
@@ -55,7 +54,7 @@ const Navbar = () => {
                 }
             </ul>
             <div className={'flex items-center gap-2'}>
-                <Button>
+                <Button href={route('contact')}>
                     Contact Us
                 </Button>
                 <div onClick={() => setIsOpen(!isOpen)} className={'block sm:hidden cursor-pointer'}>

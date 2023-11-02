@@ -23,10 +23,10 @@ const links = [
         name: 'Testimonials',
         link: 'testimonial',
     },
-    // {
-    //     name: 'Contact Us',
-    //     link: '/contact',
-    // },
+    {
+        name: 'Contact Us',
+        link: 'contact',
+    },
 ]
 
 const Footer = () => {

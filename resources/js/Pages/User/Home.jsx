@@ -1,27 +1,19 @@
 import React, {useEffect} from 'react'
-import {motion} from 'framer-motion';
 import {Carousel} from "flowbite-react";
 import Button from "../../components/atom/Button.jsx";
-import Background from '../../src/assets/background.jpg';
 import AppStore from '../../src/assets/downloadFromAppStore.png';
 import GooglePlay from '../../src/assets/downloadFromPlayStore.png';
 import Lottie from "lottie-react";
 import phone from '../../constants/phone_animation.json';
-import Testing from '../../src/assets/background_image.jpg';
 import CourseCard from "../../components/atom/CourseCard.jsx";
 import ReviewCard from "../../components/atom/ReviewCard.jsx";
 import CustomCarousel from "../../components/CustomCarousel.jsx";
 
 
-const Home = ({courses, testimonials,social,sliders, texts}) => {
+const Home = ({courses, testimonials, social, sliders, texts}) => {
 
     return (
-        <motion.div
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{duration: .5}}
-            className="">
+        <div>
             <div className={'w-screen max-h-screen h-[100vh] '}>
                 <Carousel className={'border-none h-full block'}>
                     {
@@ -74,10 +66,10 @@ const Home = ({courses, testimonials,social,sliders, texts}) => {
                     }
                 </div>
             </section>
-            <section className='glide px-4 lg:px-48 mt-16'>
+            <section className='glide-home px-4 lg:px-48 mt-16'>
                 <h2 className={'text-center text-2xl font-semibold mb-10'}>Testimonials</h2>
 
-                <CustomCarousel items={testimonials}>
+                <CustomCarousel id={'glide-home'} items={testimonials} perView={2}>
                     {
                         testimonials.map((review, index) => (
                             <ReviewCard key={index} review={review}/>
@@ -85,7 +77,7 @@ const Home = ({courses, testimonials,social,sliders, texts}) => {
                     }
                 </CustomCarousel>
             </section>
-        </motion.div>
+        </div>
     )
 }
 

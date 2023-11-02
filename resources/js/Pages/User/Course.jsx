@@ -6,12 +6,7 @@ import Paginator from "../../components/atom/Paginator.jsx";
 
 const Course = ({courses}) => {
     return (
-        <motion.div
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{duration: .5}}
-            className="">
+        <div>
 
             <div className={'px-4 lg:px-48'}>
                 <div className={'my-20 text-center'}>
@@ -28,7 +23,7 @@ const Course = ({courses}) => {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

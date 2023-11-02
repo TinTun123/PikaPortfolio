@@ -12,8 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         $courses = Course::limit(3)->latest()->get();
-
-        return inertia('User/Home',[
+        return inertia('User/Home', [
             'courses' => $courses,
             'testimonials' => Testimonial::latest()->get(),
             'sliders' => Slider::all(),

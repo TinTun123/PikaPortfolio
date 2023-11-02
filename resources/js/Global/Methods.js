@@ -10,3 +10,14 @@ export const showSuccessToast = (message) => {
         icon: '',
     });
 };
+
+export const showErrorToast = (message) => {
+    toast.success(message, {
+        position: 'bottom-center',
+        style: {
+            backgroundColor: '#e71939',
+            color: 'white',
+        },
+        icon: '',
+    });
+};

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTestinmonialRequest;
 use App\Http\Requests\UpdateTestimonialRequest;
 use App\Models\Testimonial;
+use App\Traits\ManagePhoto;
 use Illuminate\Http\Request;
 
 class AdminTestimonialController extends Controller
 {
+    use ManagePhoto;
     public function index()
     {
         return inertia('Admin/Testimonial/Index', [
@@ -42,6 +44,7 @@ class AdminTestimonialController extends Controller
         $attributes = $request->only('name', 'description');
         if($request->hasFile('image')){
             $attributes['image'] = $request->file('image')->store('testimonials');
+            $this->deletePhoto($testimonial->image);
         }
         $testimonial->update($attributes);
         return back();

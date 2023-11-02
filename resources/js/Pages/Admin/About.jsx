@@ -4,10 +4,11 @@ import Textarea from "../../components/atom/Textarea.jsx";
 import Button from "../../components/atom/Button.jsx";
 import Uploader from "../../components/atom/Uploader.jsx";
 import {useForm} from "@inertiajs/react";
+import {showSuccessToast} from "../../Global/Methods.js";
 
 const About = ({aboutMe}) => {
 
-    const {data, setData, post, processing,errors} = useForm(aboutMe ?? {});
+    const {data, setData, post, processing, errors} = useForm(aboutMe ?? {});
 
     const handleUpload = (file) => {
         setData(pre => ({...pre, image: file}))
@@ -15,7 +16,11 @@ const About = ({aboutMe}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('admin.about.update'));
+        post(route('admin.about.update'), {
+            onSuccess: () => {
+                showSuccessToast('About me is updated.')
+            }
+        });
     }
 
     const handleInputChange = (field, e) => {
@@ -30,9 +35,11 @@ const About = ({aboutMe}) => {
                           onUpload={handleUpload}></Uploader>
             </div>
             <div className={'flex flex-col gap-3 col-span-2'}>
-                <Input label={'First Title'} value={data?.first_title ?? ''} onChange={(e) => handleInputChange('first_title', e)}
+                <Input label={'First Title'} value={data?.first_title ?? ''}
+                       onChange={(e) => handleInputChange('first_title', e)}
                        placeholder={'First Title'}/>
-                <Input label={'Second Title'} value={data?.second_title ?? ''} onChange={e => handleInputChange('second_title', e)}
+                <Input label={'Second Title'} value={data?.second_title ?? ''}
+                       onChange={e => handleInputChange('second_title', e)}
                        placeholder={'Second Title'}/>
                 <Textarea label={'First Description'} value={data?.first_description ?? ''} rows={5}
                           onChange={e => handleInputChange('first_description', e)}

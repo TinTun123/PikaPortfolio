@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminSocialProfileController;
 use App\Http\Controllers\AdminTestimonialController;
 use App\Http\Controllers\AdminTextController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestimonialController;
@@ -27,10 +29,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/course', [CourseController::class, 'index'])->name('course');
 Route::get('/testimonial', [TestimonialController::class, 'index'])->name('testimonial');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
+Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminAboutMeController::class,'index']);
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/', [AdminAboutMeController::class, 'index']);
     Route::controller(AdminAboutMeController::class)->prefix('about')->name('about.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'update')->name('update');

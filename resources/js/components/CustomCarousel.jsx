@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import CarouselArrows from "./CarouselArrows.jsx";
 import CarouselDots from "./CarouselDots.jsx";
 import Glide from "@glidejs/glide";
 import '@glidejs/glide/src/assets/sass/glide.core.scss';
 // eslint-disable-next-line react/prop-types
-const CustomCarousel = ({children, items, perView = 2, autoplay = 2000}) => {
+const CustomCarousel = ({children, id,items, perView = 2, autoplay = 2000}) => {
 
+    const [slider, setSlider] = useState(null);
 
     const sliderConfiguration = {
         gap: 20,
@@ -17,15 +18,23 @@ const CustomCarousel = ({children, items, perView = 2, autoplay = 2000}) => {
                 perView: 1
             },
         },
-        hoverpause: true,
         type: "carousel"
     };
 
-    const slider = new Glide('.glide', sliderConfiguration);
+    useEffect(() => {
+        setSlider(new Glide(`.${id}`, sliderConfiguration));
+    }, []);
+
 
     useEffect(() => {
-        if(slider){
+        if (slider) {
             slider.mount();
+        }
+        return () => {
+            console.log('unmounting');
+            if (slider) {
+                setSlider(null);
+            }
         }
     }, [slider])
 

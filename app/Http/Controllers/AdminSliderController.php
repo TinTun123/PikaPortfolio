@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSliderRequest;
 use App\Http\Requests\UpdateSliderRequest;
 use App\Models\Slider;
+use App\Traits\ManagePhoto;
 use Illuminate\Http\Request;
 
 class AdminSliderController extends Controller
 {
+    use ManagePhoto;
     public function index()
     {
         return inertia('Admin/Slider/Index', [
@@ -44,6 +46,7 @@ class AdminSliderController extends Controller
         $attributes = $request->only('has_button', 'button_text', 'button_link');
         if ($request->hasFile('image')) {
             $attributes['image'] = $request->file('image')->store('sliders');
+            $this->deletePhoto($slider->image);
         }
         $slider->update($attributes);
         return back();

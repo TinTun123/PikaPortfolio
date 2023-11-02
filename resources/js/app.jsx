@@ -12,8 +12,7 @@ createInertiaApp({
         let page = await resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx'));
         page = page.default;
 
-
-        if (page.layout === undefined && name !== 'Login') {
+        if (page.layout === undefined && name !== 'Admin/Login') {
             if(name.includes('Admin')){
                 page.layout = AdminLayout;
             }else{
@@ -31,6 +30,7 @@ createInertiaApp({
         )
     },
     progress : {
-        color : '#f24406'
+        color : '#f24406',
+        showSpinner : true,
     }
 })

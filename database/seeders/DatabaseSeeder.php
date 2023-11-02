@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\SocialProfile;
 use App\Models\Testimonial;
 use App\Models\Text;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +18,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::create(['name' => 'Pika Sharing','email' => 'pikasharing@gmail.com', 'password' => 'password']);
+
+
         Course::factory(10)->create();
 
         AboutMe::factory(1)->create();
