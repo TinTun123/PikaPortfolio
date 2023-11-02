@@ -53,6 +53,7 @@ class AdminTestimonialController extends Controller
     public function destroy(Testimonial $testimonial)
     {
         $testimonial->delete();
+        $this->deletePhoto($testimonial->image);
         return redirect()->route('admin.testimonial.index');
     }
 

@@ -7,8 +7,28 @@ import {ImTelegram} from "react-icons/im";
 import Input from "../../components/atom/Input.jsx";
 import Textarea from "../../components/atom/Textarea.jsx";
 import Button from "../../components/atom/Button.jsx";
+import {useForm} from "@inertiajs/react";
+import {showSuccessToast} from "../../Global/Methods.js";
 
 const Contact = ({social}) => {
+
+    const {data, setData, post, processing, errors} = useForm({});
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        post(route('contact.store'), {
+            onSuccess: () => {
+                setData({});
+                showSuccessToast('Your message has been sent! Thank You.❤️');
+            }
+        });
+    }
+
+
+    const handleChange = (field, value) => {
+        setData(pre => ({...pre, [field]: value}));
+    }
 
     return (
         <div className={'my-10'}>
@@ -52,13 +72,17 @@ const Contact = ({social}) => {
                         </div>
                     </div>
                 </div>
-                <div className={'shadow-xl p-5 flex flex-col gap-5 col-span-1 lg:col-span-3'}>
-                    <Input placeholder={'Name'}/>
-                    <Input placeholder={'Email'}/>
-                    <Input placeholder={'Phone'}/>
-                    <Textarea placeholder={'Message'} rows={5}></Textarea>
-                    <Button className={'rounded-md'}>Send</Button>
-                </div>
+                <form onSubmit={handleSubmit} className={'shadow-xl p-5 flex flex-col gap-5 col-span-1 lg:col-span-3'}>
+                    <Input error={errors.name} value={data.name ?? ''} onChange={(e) => handleChange('name', e.target.value)} required
+                           placeholder={'Name'}/>
+                    <Input error={errors.email} type={'email'} value={data.email ?? ''} onChange={(e) => handleChange('email', e.target.value)} required
+                           placeholder={'Email'}/>
+                    <Input error={errors.phone} value={data.phone ?? ''} onChange={(e) => handleChange('phone', e.target.value)} required
+                           placeholder={'Phone'}/>
+                    <Textarea error={errors.message} value={data.message ?? ''} onChange={e => handleChange('message', e.target.value)} required
+                              placeholder={'Message'} rows={5}></Textarea>
+                    <Button loading={processing} type={'submit'} className={'rounded-md'}>Send</Button>
+                </form>
             </div>
         </div>
     )

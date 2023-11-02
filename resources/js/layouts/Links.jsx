@@ -35,6 +35,12 @@ let links = [
         icon : 'BsChatLeftText',
         can : true
     },
+    {
+        title: 'Contact Management',
+        link : 'admin.contact.index',
+        icon : 'GrContactInfo',
+        can : true
+    },
 ]
 
 

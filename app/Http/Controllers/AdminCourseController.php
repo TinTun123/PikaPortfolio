@@ -57,6 +57,7 @@ class AdminCourseController extends Controller
     public function destroy(Course $course)
     {
         $course->delete();
+        $this->deletePhoto($course->image);
         return back()->with('success', 'Course has been deleted!');
     }
 }

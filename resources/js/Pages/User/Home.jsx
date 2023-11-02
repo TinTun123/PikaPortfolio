@@ -65,6 +65,9 @@ const Home = ({courses, testimonials, social, sliders, texts}) => {
                         ))
                     }
                 </div>
+                <div className={'flex justify-center'}>
+                    <Button href={route('course')} className={'mx-auto'}>See More</Button>
+                </div>
             </section>
             <section className='glide-home px-4 lg:px-48 mt-16'>
                 <h2 className={'text-center text-2xl font-semibold mb-10'}>Testimonials</h2>

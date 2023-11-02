@@ -10,9 +10,9 @@ trait ManagePhoto
     public function deletePhoto($link): void
     {
         if (str_contains($link, 'http')) {
-            $image = explode('storage', $link)[1];
-            if (Storage::exists($image)) {
-                Storage::delete($image);
+            $arr = explode('storage', $link);
+            if (count($arr) > 1 && Storage::exists($arr[1])) {
+                Storage::delete($arr[1]);
             }
         }
     }

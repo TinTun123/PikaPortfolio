@@ -31,7 +31,6 @@ const CustomCarousel = ({children, id,items, perView = 2, autoplay = 2000}) => {
             slider.mount();
         }
         return () => {
-            console.log('unmounting');
             if (slider) {
                 setSlider(null);
             }

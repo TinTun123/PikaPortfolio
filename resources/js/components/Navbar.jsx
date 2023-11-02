@@ -28,7 +28,7 @@ const Navbar = () => {
 
     const activeLinkClass = 'border-none sm:border border-t-0 border-b-primary border-b-[3px] text-primary border-l-0';
     return (
-        <div className="flex px-2 lg:px-48 sticky z-[1000000] top-0 bg-white py-4 justify-between items-center shadow-lg ">
+        <div className="flex px-2 lg:px-48 sticky z-[10] top-0 bg-white py-4 justify-between items-center shadow-lg ">
             <div className="text-xl">
                 <img src={Logo} className={'w-[70px]'} alt=""/>
             </div>

@@ -17,7 +17,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'mail_sender' => env('MAIL_SENDER','pikasharing@gmail.com'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

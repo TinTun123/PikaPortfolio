@@ -35,7 +35,7 @@ const Footer = () => {
 
     return (
         <div style={{backgroundImage: `url(${FooterBackground})`}}
-             className={'mt-20 px-4 gap-5 text-white grid grid-cols-1 lg:grid-cols-3 pt-40 pb-20 bg-cover bg-top lg:px-48'}>
+             className={'mt-20 px-4 footer gap-5 text-white grid grid-cols-1 lg:grid-cols-3 pt-40 pb-20 bg-top bg-cover lg:px-48'}>
             <div className={''}>
                 <div className={'flex items-center gap-5'}>
                     <img className={'w-[70px] '} src={Logo} alt=""/>

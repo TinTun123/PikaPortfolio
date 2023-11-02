@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminAboutMeController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminSocialProfileController;
@@ -30,6 +31,8 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/course', [CourseController::class, 'index'])->name('course');
 Route::get('/testimonial', [TestimonialController::class, 'index'])->name('testimonial');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
@@ -79,6 +82,13 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::controller(AdminTextController::class)->prefix('text')->name('text.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::put('/', 'update')->name('update');
+    });
+
+
+    Route::controller(AdminContactController::class)->prefix('contact')->name('contact.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'reply')->name('reply');
+        Route::delete('/{contact:id}', 'destroy')->name('destroy');
     });
 
 });

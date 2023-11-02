@@ -56,6 +56,7 @@ class AdminSliderController extends Controller
     public function destroy(Slider $slider)
     {
         $slider->delete();
+        $this->deletePhoto($slider->image);
         return back()->with('success', 'Slider has been deleted');
     }
 }
