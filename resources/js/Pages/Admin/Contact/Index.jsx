@@ -69,17 +69,27 @@ const Index = ({contacts}) => {
             <ConfirmModal loading={processing} onCancel={() => setDeleteModalOpen(false)} onConfirm={handleDelete}
                           show={deleteModalOpen}/>
 
-            <div className={'p-4 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 '}>
-                {
-                    contacts.data.map(contact => (
-                        <ContactCard handleReply={handleReply} handleDeleteModal={handleDeleteModal} key={contact.id}
-                                     contact={contact}/>
-                    ))
-                }
-                <div className={'col-span-full'}>
-                    <Paginator links={contacts.links}/>
+            {
+                contacts.data.length === 0 &&
+                <div className={'flex justify-center mt-20'}>
+                    No Message Yet
                 </div>
-            </div>
+            }
+            {
+                contacts.data.length > 0 &&
+                <div className={'p-4 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 '}>
+                    {
+                        contacts.data.map(contact => (
+                            <ContactCard handleReply={handleReply} handleDeleteModal={handleDeleteModal} key={contact.id}
+                                         contact={contact}/>
+                        ))
+                    }
+                    <div className={'col-span-full'}>
+                        <Paginator links={contacts.links}/>
+                    </div>
+                </div>
+            }
+
         </div>
     );
 };

@@ -37,7 +37,13 @@ const Index = ({sliders}) => {
             </div>
             <div className={'p-4 bg-white flex flex-col gap-4 min-h-screen'}>
                 {
-                    sliders?.map(slider => (
+                    sliders.length === 0 &&
+                    <div className={'flex justify-center mt-20'}>
+                        No Slider Yet
+                    </div>
+                }
+                {
+                    sliders.length > 0 && sliders?.map(slider => (
                         <SliderCard handleDeleteModal={handleDeleteModal} key={slider.id} slider={slider}/>
                     ))
                 }

@@ -73,13 +73,17 @@ const Contact = ({social}) => {
                     </div>
                 </div>
                 <form onSubmit={handleSubmit} className={'shadow-xl p-5 flex flex-col gap-5 col-span-1 lg:col-span-3'}>
-                    <Input error={errors.name} value={data.name ?? ''} onChange={(e) => handleChange('name', e.target.value)} required
+                    <Input error={errors.name} value={data.name ?? ''}
+                           onChange={(e) => handleChange('name', e.target.value)} required
                            placeholder={'Name'}/>
-                    <Input error={errors.email} type={'email'} value={data.email ?? ''} onChange={(e) => handleChange('email', e.target.value)} required
+                    <Input error={errors.email} type={'email'} value={data.email ?? ''}
+                           onChange={(e) => handleChange('email', e.target.value)} required
                            placeholder={'Email'}/>
-                    <Input error={errors.phone} value={data.phone ?? ''} onChange={(e) => handleChange('phone', e.target.value)} required
+                    <Input error={errors.phone} value={data.phone ?? ''}
+                           onChange={(e) => handleChange('phone', e.target.value)} required
                            placeholder={'Phone'}/>
-                    <Textarea error={errors.message} value={data.message ?? ''} onChange={e => handleChange('message', e.target.value)} required
+                    <Textarea error={errors.message} value={data.message ?? ''}
+                              onChange={e => handleChange('message', e.target.value)} required
                               placeholder={'Message'} rows={5}></Textarea>
                     <Button loading={processing} type={'submit'} className={'rounded-md'}>Send</Button>
                 </form>

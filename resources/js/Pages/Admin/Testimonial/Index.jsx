@@ -11,7 +11,6 @@ const Index = ({testimonials}) => {
     const [loading, setLoading] = useState(false);
     const [testimonial, setTestimonial] = useState(null);
 
-
     const confirmDelete = () => {
         router.delete(route('admin.testimonial.destroy', testimonial), {
             preserveScroll : true,
@@ -35,6 +34,12 @@ const Index = ({testimonials}) => {
                 <Button href={route('admin.testimonial.create')}>Create Review</Button>
             </div>
             <div className={'p-4 bg-white flex flex-col gap-4 min-h-screen'}>
+                {
+                    testimonials.data.length === 0 &&
+                    <div className={'flex justify-center mt-20'}>
+                        No  Sliders Found
+                    </div>
+                }
                 {
                     testimonials.data.map(testimonial => (
                         <TestimonialCard handleTestimonialDelete={handleTestimonialDelete} key={testimonial.id}

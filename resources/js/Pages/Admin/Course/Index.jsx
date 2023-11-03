@@ -38,6 +38,12 @@ const Index = ({courses}) => {
             </div>
             <div className={'p-4 bg-white flex flex-col gap-4 min-h-screen'}>
                 {
+                    courses.data.length === 0 &&
+                    <div className={'flex justify-center mt-20'}>
+                        No Course Found
+                    </div>
+                }
+                {
                     courses.data.map(course => (
                         <CourseCard handleDeleteModal={handleDeleteModal} key={course.id} course={course}/>
                     ))
