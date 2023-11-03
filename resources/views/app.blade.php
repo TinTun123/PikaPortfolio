@@ -56,7 +56,6 @@
         gtag('config', 'G-1WLY7J4KN5');
     </script>
 
-
 </head>
 <body>
 @inertia
