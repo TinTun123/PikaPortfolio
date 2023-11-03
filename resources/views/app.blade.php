@@ -11,7 +11,8 @@
     <!--    meta tag -->
 
     <meta name="title" content="Pika Sharing">
-    <meta name="description" content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution.">
+    <meta name="description"
+          content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution.">
     <meta name="keywords" content="Pika , Pika Sharing, Pika English">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -20,22 +21,41 @@
 
     <!-- Primary Meta Tags -->
     <title>Pika Sharing</title>
-    <meta name="title" content="Pika Sharing" />
-    <meta name="description" content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution." />
+    <meta name="title" content="Pika Sharing"/>
+    <meta name="description"
+          content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution."/>
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://metatags.io/" />
-    <meta property="og:title" content="Pika Sharing" />
-    <meta property="og:description" content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution." />
-    <meta property="og:image" content="https://i.postimg.cc/L55hXGQ8/Asset-14-300x-1.jpg" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://metatags.io/"/>
+    <meta property="og:title" content="Pika Sharing"/>
+    <meta property="og:description"
+          content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution."/>
+    <meta property="og:image" content="https://i.postimg.cc/L55hXGQ8/Asset-14-300x-1.jpg"/>
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://metatags.io/" />
-    <meta property="twitter:title" content="Pika Sharing" />
-    <meta property="twitter:description" content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution." />
-    <meta property="twitter:image" content="https://i.postimg.cc/L55hXGQ8/Asset-14-300x-1.jpg" />
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="https://metatags.io/"/>
+    <meta property="twitter:title" content="Pika Sharing"/>
+    <meta property="twitter:description"
+          content="This site is to provide people with proven how-tos, free some minds, and document Pika's evolution."/>
+    <meta property="twitter:image" content="https://i.postimg.cc/L55hXGQ8/Asset-14-300x-1.jpg"/>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WLY7J4KN5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-1WLY7J4KN5');
+    </script>
+
 
 </head>
 <body>
