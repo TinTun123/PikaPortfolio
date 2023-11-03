@@ -41,6 +41,12 @@ let links = [
         icon : 'GrContactInfo',
         can : true
     },
+    {
+        title: 'Go Back Home',
+        link : 'home',
+        icon : 'BiArrowBack',
+        can : true
+    },
 ]
 
 

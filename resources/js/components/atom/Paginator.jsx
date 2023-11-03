@@ -4,12 +4,12 @@ import DynamicComponent from "../DynamicComponent.jsx";
 import {Link} from "@inertiajs/react";
 
 const Paginator = ({links}) => {
-    const redesign = (label,nickname) => {
+    const redesign = (label, nickname) => {
         return label.includes(nickname);
     }
     return (
         <>
-            { links?.length > 3 &&
+            {links?.length > 3 &&
                 <div
                     className="
                         flex-wrap
@@ -26,14 +26,14 @@ const Paginator = ({links}) => {
                         links?.map(link => (
                             <DynamicComponent
                                 key={link.label}
-                                Component={link?.url ? Button : null}
+                                Component={link?.url ? null : null}
                                 href={link.url}
                                 className={'!px-0 !py-0 !rounded-md bg-white !text-black !w-[40px] flex hover:bg-none border-none justify-center items-center !h-[40px] '}
                                 preserveState={true}
                                 preserveScroll={true}
                             >
                                 {
-                                    redesign(link.label,'Previous') ?  <Link
+                                    redesign(link.label, 'Previous') ? <Link
                                             className={`hidden w-10 h-10 space-x-2 rounded-md sm:items-center justify-center border-[1px] border-gray-200 sm:flex ${!link.url ? 'cursor-not-allowed pointer-events-none opacity-40' : ''}`}
                                             disabled={!link.url}
                                             href={link.url}
@@ -52,7 +52,7 @@ const Paginator = ({links}) => {
                                                 />
                                             </svg>
                                         </Link>
-                                        : redesign(link.label,'Next') ? <Link
+                                        : redesign(link.label, 'Next') ? <Link
                                                 className={`hidden w-10 h-10 border-[1px] rounded-md border-gray-200 space-x-2 sm:items-center justify-center sm:flex ${!link.url ? 'cursor-not-allowed pointer-events-none opacity-40' : ''}`}
                                                 disabled={!link.url}
                                                 href={link.url}

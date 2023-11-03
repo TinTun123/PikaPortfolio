@@ -4,7 +4,7 @@ import Course from "../../src/assets/pika_course.jpeg";
 const TestimonialCard = ({testimonial}) => {
     return (
         <div
-            className={"shadow-lg glide__slide slider hover:shadow-2xl px-10 py-20 rounded-2xl  text-center"}>
+            className={"glide__slide slider border px-10 my-10 py-12 rounded-2xl  text-center"}>
             <img className={'rounded-full border-8 border-primary w-[150px] h-[150px] object-cover mx-auto'} src={testimonial.image}
                  alt=""/>
             <p className={"relative py-[30px] max-w-2xl mx-auto "}><span

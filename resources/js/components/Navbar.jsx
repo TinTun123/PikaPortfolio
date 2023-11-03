@@ -30,7 +30,7 @@ const Navbar = () => {
     return (
         <div className="flex px-2 lg:px-48 sticky z-[10] top-0 bg-white py-4 justify-between items-center shadow-lg ">
             <div className="text-xl">
-                <img src={Logo} className={'w-[70px]'} alt=""/>
+                <Link href={'/'}><img src={Logo} className={'w-[70px]'} alt="" /></Link>
             </div>
             {/*mobile */}
             <ul className={`text-md sm:hidden absolute py-3 flex flex-col justify-center transition-all duration-300 top-[73px] left-0 bg-white w-full z-10 ${isOpen ? 'left-0' : 'left-[-100%]'}`}>

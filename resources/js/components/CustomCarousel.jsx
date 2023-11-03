@@ -14,7 +14,7 @@ const CustomCarousel = ({children, id,items, perView = 2, autoplay = 2000}) => {
         startAt: 0,
         autoplay: autoplay,
         breakpoints: {
-            600: {
+            1200: {
                 perView: 1
             },
         },
@@ -39,11 +39,11 @@ const CustomCarousel = ({children, id,items, perView = 2, autoplay = 2000}) => {
 
     return (
         <div>
-            <div className='glide__track z-0 relative' data-glide-el='track'>
-                <ul className='glide__slides'>
+            <div className='glide__track relative z-0 ' data-glide-el='track'>
+                <ul className='glide__slides '>
                     {children}
                 </ul>
-                <CarouselArrows/>
+                {/*<CarouselArrows/>*/}
             </div>
             <CarouselDots items={items}/>
         </div>

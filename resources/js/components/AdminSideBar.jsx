@@ -38,7 +38,7 @@ const AdminSideBar = ({children}) => {
                             <li key={link.title}>
                                 <Link
                                     href={route(link.link)}
-                                    className={`text-[15px] cursor-pointer flex gap-2 w-full px-4 py-3 transition hover:bg-secondary ${window.location.href === route(link.link) && 'border-l-4 border-primary'}`}
+                                    className={`text-[15px] cursor-pointer transition-all duration-300 flex gap-2 w-full px-4 py-3 transition hover:bg-secondary ${window.location.href === route(link.link) && 'border-l-4 border-primary bg-gray-200'}`}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <DynamicComponent name={link.icon} className="w-5 h-5"/>

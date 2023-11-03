@@ -2,7 +2,7 @@ import React from 'react';
 
 const CarouselArrows = () => {
     return (
-        <div className='glide__arrows absolute top-[50%] z-10  flex justify-between items-center  w-full '
+        <div className='glide__arrows absolute left-0 top-[48%] z-10  flex justify-between items-center  w-full '
              data-glide-el='controls'>
             <button
                 className='glide__arrow glide__arrow--prev text-primary'

@@ -1,6 +1,7 @@
 import React from 'react';
 import {AiOutlineDelete} from "react-icons/ai";
 import {BsReply} from "react-icons/bs";
+import Copy from "../../../components/atom/Copy.jsx";
 
 const ContactCard = ({contact, handleDeleteModal, handleReply}) => {
     return (
@@ -8,9 +9,9 @@ const ContactCard = ({contact, handleDeleteModal, handleReply}) => {
             <div className={'flex h-full flex-col gap-5 w-full justify-between'}>
                 <div>
                     <div>
-                        <p>Name : <span>{contact.name}</span></p>
-                        <p>Email : <span>{contact.email}</span></p>
-                        <p>Phone : <span>{contact.phone}</span></p>
+                        <div className={'flex items-center gap-1'}>Name : <Copy text={contact.name}><span>{contact.name}</span></Copy></div>
+                        <div className={'flex items-center gap-1'}>Email : <Copy text={contact.email}><span>{contact.email}</span></Copy></div>
+                        <div className={'flex items-center gap-1'}>Phone : <Copy text={contact.phone}><span>{contact.phone}</span></Copy></div>
                         <p>Replied : <span className={`${contact.replied ? 'text-green-500' : 'text-rose-500'}`}>{contact.replied ? 'Yes' : 'No'}</span></p>
                     </div>
                     <div>

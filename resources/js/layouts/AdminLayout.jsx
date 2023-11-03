@@ -1,11 +1,16 @@
 import React from 'react';
 import AdminSideBar from "../components/AdminSideBar.jsx";
+import AnimatePage from "./AnimatePage.jsx";
 
 const AdminLayout = (children) => {
 
 
     return (
-        <AdminSideBar children={children} />
+        <AdminSideBar>
+            <AnimatePage>
+                {children}
+            </AnimatePage>
+        </AdminSideBar>
     );
 };
 

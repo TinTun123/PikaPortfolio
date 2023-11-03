@@ -5,8 +5,9 @@ import Paginator from "../../components/atom/Paginator.jsx";
 import {debounce} from "lodash";
 import {router, usePage} from "@inertiajs/react";
 
-const Course = ({courses,filters}) => {
+const Course = ({courses, filters}) => {
     const [search, setSearch] = useState(filters.search ?? '');
+    const [firstTime, setFirstTime] = useState(true);
 
     const dynamicParams = () => {
         let params = {};
@@ -17,6 +18,7 @@ const Course = ({courses,filters}) => {
     }
 
     const fetchCourses = debounce(function () {
+        console.log('it run');
         router.get((route('course')),
             dynamicParams(),
             {
@@ -26,10 +28,15 @@ const Course = ({courses,filters}) => {
         );
     }, 300);
 
-    useEffect(()=> {
-        fetchCourses();
-    },[search]);
+    useEffect(() => {
+        if (!firstTime) {
+            fetchCourses();
+        }
+    }, [search]);
 
+    useEffect(() => {
+        setFirstTime(false);
+    }, [])
 
     return (
         <div>

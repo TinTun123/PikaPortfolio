@@ -55,7 +55,7 @@ const Index = ({contacts}) => {
                 <form onSubmit={handleSubmitReply} className={'flex flex-col gap-3'}>
                     <Input error={errors.subject} label={'Subject'} onChange={e => setData('subject', e.target.value)}/>
                     <p className={'font-medium'}>Body</p>
-                    <div className={'h-[300px] mb-20'}>
+                    <div className={'h-[300px]'}>
                         <EditorComponent value={data.body} onChange={(text) => setData('body', text)}/>
                         <p className={'text-red-500 text-sm'}>{errors.body}</p>
                     </div>

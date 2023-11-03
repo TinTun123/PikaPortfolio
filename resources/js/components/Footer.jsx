@@ -61,9 +61,9 @@ const Footer = () => {
                     <li>{social.email}</li>
                     <li>{social.phone}</li>
                     <div className={'text-2xl flex items-center gap-4 my-2'}>
-                        <a href={social.facebook} target={'_blank'} className={'hover:scale-110'}><FaFacebook/></a>
-                        <a href={social.youtube} target={'_blank'}><BsYoutube/></a>
-                        <a href={social.telegram} target={'_blank'}><BsTelegram/></a>
+                        <a href={social.facebook} className={'transition-all duration-300 hover:scale-110'} target={'_blank'} ><FaFacebook/></a>
+                        <a href={social.youtube} className={'transition-all duration-300 hover:scale-110'} target={'_blank'}><BsYoutube/></a>
+                        <a href={social.telegram} className={'transition-all duration-300 hover:scale-110'} target={'_blank'}><BsTelegram/></a>
                     </div>
                 </ul>
             </div>

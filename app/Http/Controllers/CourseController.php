@@ -14,9 +14,10 @@ class CourseController extends Controller
                 return $query->where('title', 'like', '%' . request('search') . '%')
                     ->orWhere('description', 'like', '%' . request('search') . '%')
                     ->orWhere('instructor', 'like', '%' . request('search') . '%');
-            })->paginate(6),
+            })->paginate(6)->withQueryString(),
             'filters' => [
-                'search' => request('search')
+                'search' => request('search'),
+                'page' => request('page'),
             ]
         ]);
     }

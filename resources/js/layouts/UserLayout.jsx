@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import Navbar from "../components/Navbar";
-import {AnimatePresence} from "framer-motion";
 import Footer from "../components/Footer.jsx";
+import AnimatePage from "./AnimatePage.jsx";
 
 const UserLayout = (children) => {
 
@@ -10,9 +10,9 @@ const UserLayout = (children) => {
     return (
         <div className="min-h-screen min-w-screen">
             <Navbar/>
-            <AnimatePresence key={'fdas'}>
+            <AnimatePage>
                 {children}
-            </AnimatePresence>
+            </AnimatePage>
             <Footer/>
         </div>
     )
