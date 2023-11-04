@@ -6,12 +6,14 @@ use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminSocialProfileController;
+use App\Http\Controllers\AdminSubscriberController;
 use App\Http\Controllers\AdminTestimonialController;
 use App\Http\Controllers\AdminTextController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +38,10 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
+
+
+Route::post('/subscribe', [SubscriberController::class, 'store'])->name('subscribe');
+
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
@@ -89,6 +95,11 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'reply')->name('reply');
         Route::delete('/{contact:id}', 'destroy')->name('destroy');
+    });
+
+    Route::controller(AdminSubscriberController::class)->prefix('subscriber')->name('subscriber.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::delete('/{subscriber:id}', 'destroy')->name('destroy');
     });
 
 });

@@ -43,3 +43,6 @@ input:focus-visible,textarea:focus-visible{
     display: none !important;
 }
 
+.section{
+    @apply max-w-[1200px] mx-auto;
+}

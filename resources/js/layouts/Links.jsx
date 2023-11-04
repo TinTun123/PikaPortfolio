@@ -42,6 +42,12 @@ let links = [
         can : true
     },
     {
+        title: 'Subscribe Lists',
+        link : 'admin.subscriber.index',
+        icon : 'MdOutlineUnsubscribe',
+        can : true
+    },
+    {
         title: 'Go Back Home',
         link : 'home',
         icon : 'BiArrowBack',

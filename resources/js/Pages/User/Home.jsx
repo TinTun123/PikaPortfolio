@@ -73,7 +73,7 @@ const Home = ({courses, testimonials, social, sliders, texts}) => {
             </div>
             <div className={'mt-16'}>
                 <h2 className={'text-center text-2xl font-semibold mb-5'}>Out Digital Tool</h2>
-                <section className={'h-fit grid grid-cols-1 lg:grid-cols-2 items-center px-4  lg:px-48'}>
+                <section className={'h-fit grid grid-cols-1 lg:grid-cols-2 items-center px-4  section'}>
                     <div className={'flex flex-col gap-5 lg:p-0'}>
                         <p className={'p-0 lg:pr-14 text-lg '}>{texts.digital_text}</p>
                         <div className={'flex gap-3 '}>
@@ -92,7 +92,7 @@ const Home = ({courses, testimonials, social, sliders, texts}) => {
             </div>
             <section className={'mt-16'}>
                 <h2 className={'text-center text-2xl font-semibold'}>Courses</h2>
-                <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 lg:px-48 gap-10 py-20'}>
+                <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 section gap-10 py-20'}>
                     {
                         courses.map(course => (
                             <CourseCard key={course.id} course={course}/>
@@ -103,7 +103,7 @@ const Home = ({courses, testimonials, social, sliders, texts}) => {
                     <Button href={route('course')} className={'mx-auto'}>See More</Button>
                 </div>
             </section>
-            <section className='glide-home px-4 lg:px-48 mt-16'>
+            <section className='glide-home px-4 section mt-16'>
                 <h2 className={'text-center text-2xl font-semibold mb-10'}>Testimonials</h2>
 
                 <CustomCarousel id={'glide-home'} items={testimonials} perView={2}>

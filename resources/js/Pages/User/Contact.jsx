@@ -9,11 +9,11 @@ import Textarea from "../../components/atom/Textarea.jsx";
 import Button from "../../components/atom/Button.jsx";
 import {useForm} from "@inertiajs/react";
 import {showSuccessToast} from "../../Global/Methods.js";
+import SubscribeForm from "../../components/SubscribeForm.jsx";
 
 const Contact = ({social}) => {
 
     const {data, setData, post, processing, errors} = useForm({});
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,7 +39,7 @@ const Contact = ({social}) => {
                     Alternatively,
                     you can reach out to us directly.</p>
             </div>
-            <div className={'px-4 lg:px-48 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-3'}>
+            <div className={'px-4 section grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-3'}>
                 <div
                     className={'bg-black text-white shadow-xl col-span-1 lg:col-span-2 rounded p-5 flex flex-col justify-between'}>
                     <h3 className={'text-2xl font-semibold text-primary mb-2'}>Contact Information</h3>
@@ -66,10 +66,7 @@ const Contact = ({social}) => {
                         </div>
                     </div>
                     <div className={'grow flex justify-center items-center'}>
-                        <div className={'flex  w-full'}>
-                            <Input className={'text-black'} placeholder={'Email'}/>
-                            <Button className={'rounded-sm'}>Join</Button>
-                        </div>
+                        <SubscribeForm />
                     </div>
                 </div>
                 <form onSubmit={handleSubmit} className={'shadow-xl p-5 flex flex-col gap-5 col-span-1 lg:col-span-3'}>

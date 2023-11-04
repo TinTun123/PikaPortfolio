@@ -1,6 +1,6 @@
 import React from "react";
 import {AiOutlineUser} from "react-icons/ai";
-import {MdOutlinePlayLesson, MdOutlineReviews} from "react-icons/md";
+import {MdOutlinePlayLesson, MdOutlineReviews, MdOutlineUnsubscribe} from "react-icons/md";
 import {IoShareSocialOutline} from "react-icons/io5";
 import {TfiLayoutSliderAlt} from "react-icons/tfi";
 import {BsChatLeftText} from "react-icons/bs";
@@ -16,7 +16,8 @@ const DynamicIcon = (props) => {
         TfiLayoutSliderAlt,
         BsChatLeftText,
         GrContactInfo,
-        BiArrowBack
+        BiArrowBack,
+        MdOutlineUnsubscribe
     };
 
     const TagComponent = icons[props.name];

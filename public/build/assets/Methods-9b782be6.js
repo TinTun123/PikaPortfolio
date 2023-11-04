@@ -1,1 +1,0 @@
-import{_ as s}from"./app-35991081.js";const c=o=>{s.success(o,{position:"bottom-center",duration:5e3,style:{backgroundColor:"#00BA7C",color:"white"},icon:""})},r=o=>{s.success(o,{position:"bottom-center",style:{backgroundColor:"#e71939",color:"white"},duration:5e3,icon:""})};export{r as a,c as s};

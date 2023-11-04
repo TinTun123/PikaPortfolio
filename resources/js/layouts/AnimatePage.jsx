@@ -12,8 +12,8 @@ const AnimatePage = ({children}) => {
     return (
         <AnimatePresence key={page.component}>
             <motion.div
-                initial={{opacity: 0, translateX : -20}}
-                animate={{opacity: 1, translateX : 0}}
+                initial={{opacity: 0, translateY : -20}}
+                animate={{opacity: 1, translateY : 0}}
                 exit={{opacity: 0}}
                 transition={{duration: .3}}
             >

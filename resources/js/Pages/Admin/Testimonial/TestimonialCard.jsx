@@ -20,7 +20,8 @@ const TestimonialCard = ({testimonial, handleTestimonialDelete}) => {
                         <Link href={route('admin.testimonial.edit', testimonial.id)} className={'text-2xl '}>
                             <AiOutlineEdit/>
                         </Link>
-                        <button onClick={() => handleTestimonialDelete(testimonial.id)} className={'text-2xl text-primary'}>
+                        <button onClick={() => handleTestimonialDelete(testimonial.id)}
+                                className={'text-2xl text-primary'}>
                             <AiOutlineDelete/>
                         </button>
                     </div>

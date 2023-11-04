@@ -18,7 +18,6 @@ const Course = ({courses, filters}) => {
     }
 
     const fetchCourses = debounce(function () {
-        console.log('it run');
         router.get((route('course')),
             dynamicParams(),
             {
@@ -40,7 +39,7 @@ const Course = ({courses, filters}) => {
 
     return (
         <div>
-            <div className={'px-4 lg:px-48'}>
+            <div className={'px-4 section'}>
                 <div className={'my-20 text-center'}>
                     <Input value={search} onChange={e => setSearch(e.target.value)} className={'md:w-[80%] lg:w-[50%]'}
                            placeholder={'Search Course'}/>

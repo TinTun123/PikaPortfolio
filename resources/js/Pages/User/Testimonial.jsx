@@ -9,7 +9,7 @@ const Testimonial = ({testimonials}) => {
             <div className={'text-center'}>
                 <h2 className={'font-bold text-2xl'}>What Our <span className={'text-primary'}>Students'</span> Say</h2>
             </div>
-            <div className={'glide-testimonial px-4 lg:px-48 '}>
+            <div className={'glide-testimonial px-4 section'}>
 
                 <CustomCarousel id={'glide-testimonial'} perView={1} items={testimonials}>
                     {
