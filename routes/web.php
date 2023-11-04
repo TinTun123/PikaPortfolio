@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminAboutMeController;
+use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminSliderController;
@@ -100,6 +101,12 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::controller(AdminSubscriberController::class)->prefix('subscriber')->name('subscriber.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::delete('/{subscriber:id}', 'destroy')->name('destroy');
+    });
+
+    Route::controller(AdminAnnouncementController::class)->prefix('announcement')->name('announcement.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+        Route::delete('/{announcement:id}', 'destroy')->name('destroy');
     });
 
 });

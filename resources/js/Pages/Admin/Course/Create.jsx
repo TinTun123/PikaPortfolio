@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Input from "../../../components/atom/Input.jsx";
 import Textarea from "../../../components/atom/Textarea.jsx";
 import Button from "../../../components/atom/Button.jsx";
@@ -19,12 +19,12 @@ const Create = ({course, errors}) => {
         let url = '';
         if (course) {
             url = route('admin.course.update', course.id);
-        }else{
+        } else {
             url = route('admin.course.store');
         }
-        post(url,{
-            preserveScroll : true,
-            onSuccess : () => {
+        post(url, {
+            preserveScroll: true,
+            onSuccess: () => {
                 showSuccessToast(`Course has been ${course ? 'updated' : 'created'}`)
             }
         })
@@ -37,12 +37,14 @@ const Create = ({course, errors}) => {
                           onUpload={handleUpload}></Uploader>
             </div>
             <div className={'flex flex-col gap-3 col-span-2'}>
-                <Input error={errors.title} label={'Title'} value={data?.title ?? ''} onChange={e => setData('title', e.target.value)}
+                <Input error={errors.title} label={'Title'} value={data?.title ?? ''}
+                       onChange={e => setData('title', e.target.value)}
                        placeholder={'Title'}/>
                 <Input error={errors.instructor} label={'Instructor'} value={data?.instructor ?? ''}
                        onChange={e => setData('instructor', e.target.value)}
                        placeholder={'Instructor'}/>
-                <Input error={errors.link} label={'Course Link'} value={data?.link ?? ''} onChange={e => setData('link', e.target.value)}
+                <Input error={errors.link} label={'Course Link'} value={data?.link ?? ''}
+                       onChange={e => setData('link', e.target.value)}
                        placeholder={'Link Tto redirect to'}/>
                 <Input error={errors.price} label={'Price'} value={data?.price ?? ''} type={'number'}
                        onChange={e => setData('price', +e.target.value)}

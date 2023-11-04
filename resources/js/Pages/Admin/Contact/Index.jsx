@@ -80,8 +80,8 @@ const Index = ({contacts}) => {
                     <p className={'font-medium'}>Body</p>
                     <div className={'h-[300px]'}>
                         <EditorComponent value={data.body} onChange={(text) => setData('body', text)}/>
-                        <p className={'text-red-500 text-sm'}>{errors.body}</p>
                     </div>
+                    <p className={'text-red-500 text-sm'}>{errors.body}</p>
                     <div className={'flex gap-3'}>
                         <Button onClick={() => setModalOpen(false)} outline className={'w-full'}>Cancel</Button>
                         <Button type={'submit'} className={'w-full'}>Reply</Button>
