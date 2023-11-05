@@ -5,6 +5,7 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers'
 import UserLayout from "./layouts/UserLayout.jsx";
 import AdminLayout from "./layouts/AdminLayout.jsx";
 import {Toaster} from "react-hot-toast";
+
 window.route = route;
 
 createInertiaApp({

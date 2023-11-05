@@ -55,7 +55,9 @@
 
         gtag('config', 'G-1WLY7J4KN5');
     </script>
-
+    @if (strpos($_SERVER['REQUEST_URI'], 'admin') === false && strpos($_SERVER['REQUEST_URI'], 'login') === false)
+        <script src="//code.tidio.co/v5dr5qfjgfngazxnxuwotbuk2wpswah3.js" async></script>
+    @endif
 </head>
 <body>
 @inertia
