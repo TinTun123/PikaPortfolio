@@ -64,32 +64,36 @@ const Index = ({subscribers, filters}) => {
     }
 
     return (
-        <div className={'p-4 bg-white'}>
-            <ConfirmModal show={deleteModal} loading={processing} onCancel={() => setDeleteModal(false)}
-                          onConfirm={handleDeleteSubscribe}/>
-            <Input placeholder={'Search mail'} value={search} onChange={e => setSearch(e.target.value)}
-                   className={'w-[100%] md:w-[70%] lg:w-[50%]'}/>
-            <Table columns={[{field: 'Email'}, {field: 'Actions'}]}>
-                {
-                    subscribers.data.map(s => (
-                        <TableRow key={s.id}>
-                            <TableData>
-                                <Copy text={s.email}>{s.email}</Copy>
-                            </TableData>
-                            <TableData>
-                                <button onClick={() => handleDeleteModal(s.id)}
-                                        className={'text-2xl text-primary'}>
-                                    <AiOutlineDelete/>
-                                </button>
-                            </TableData>
-                        </TableRow>
-                    ))
-                }
-            </Table>
-            <div>
-                <Paginator links={subscribers.links}/>
+        <>
+            <div className={'w-full my-2'}>
+                <Input placeholder={'Search mail'} value={search} onChange={e => setSearch(e.target.value)}
+                       className={'w-[100%] md:w-[70%] lg:w-[50%]'}/>
             </div>
-        </div>
+            <div className={'p-4 bg-white overflow-x-scroll'}>
+                <ConfirmModal show={deleteModal} loading={processing} onCancel={() => setDeleteModal(false)}
+                              onConfirm={handleDeleteSubscribe}/>
+                <Table columns={[{field: 'Email'}, {field: 'Actions'}]}>
+                    {
+                        subscribers.data.map(s => (
+                            <TableRow key={s.id}>
+                                <TableData>
+                                    <Copy text={s.email}>{s.email}</Copy>
+                                </TableData>
+                                <TableData>
+                                    <button onClick={() => handleDeleteModal(s.id)}
+                                            className={'text-2xl text-primary'}>
+                                        <AiOutlineDelete/>
+                                    </button>
+                                </TableData>
+                            </TableRow>
+                        ))
+                    }
+                </Table>
+                <div>
+                    <Paginator links={subscribers.links}/>
+                </div>
+            </div>
+        </>
     );
 };
 

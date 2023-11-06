@@ -6,7 +6,6 @@ const TestimonialCard = ({testimonial, handleTestimonialDelete}) => {
 
     return (
         <div className={' w-full p-4 shadow-lg hover:shadow-2xl flex flex-col sm:flex-row gap-5'}>
-            <img className={'h-[200px] object-cover '} src={''} alt=""/>
             <div className={'flex flex-col gap-5 w-full justify-between'}>
                 <div>
                     <div className={'flex items-center gap-4 my-2'}>

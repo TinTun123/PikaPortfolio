@@ -92,10 +92,10 @@ const Index = ({announcements}) => {
                               show={modalOpen}
                               onClose={() => setModalOpen(false)}/>
 
-            <div className={'p-4 pt-0 '}>
+            <div className={'p-4 pr-0 pt-0 '}>
                 <Button className={'ml-auto'} onClick={() => setModalOpen(true)}>Create Announcement</Button>
             </div>
-            <div className={'p-4 bg-white '}>
+            <div className={'p-4 bg-white overflow-x-scroll'}>
                 <Table columns={[{field: 'Subject'}, {field: 'Body'}, {field: 'Actions'}]}>
                     {
                         announcements.data.map(a => (

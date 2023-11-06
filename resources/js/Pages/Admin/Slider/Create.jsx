@@ -6,6 +6,8 @@ import Button from "../../../components/atom/Button.jsx";
 import {useForm} from "@inertiajs/react";
 import {Label, Radio} from "flowbite-react";
 import {showSuccessToast} from "../../../Global/Methods.js";
+import {BsArrowLeft} from "react-icons/bs";
+import BackButton from "../../../components/atom/BackButton.jsx";
 
 const Create = ({slider}) => {
 
@@ -22,7 +24,7 @@ const Create = ({slider}) => {
         e.preventDefault();
         let url = slider ? route('admin.slider.update', slider.id) : route('admin.slider.store');
         post(url, {
-            onSuccess : () => {
+            onSuccess: () => {
                 showSuccessToast(`Slider is ${slider ? 'updated' : 'created'}`);
             }
         });
@@ -34,41 +36,45 @@ const Create = ({slider}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className={'grid grid-cols-1 lg:grid-cols-3 p-4 gap-5'}>
-            <div>
-                <Uploader onRemoveFile={() => setData('image', null)} photo={data?.image}
-                          onUpload={handleUpload}></Uploader>
-            </div>
-            <div className={'flex flex-col gap-3 col-span-2'}>
-                <p className={'font-medium'}>Has Button</p>
-                <div className={'flex gap-5 mb-4'}>
-                    <div className="flex items-center gap-2">
-                        <Radio onChange={e => handleCheck(true)} id="yes" name="hasButton" value={true}
-                               checked={hasButton}
-                               className={'!text-black'}
-                        />
-                        <Label htmlFor="yes" className={'!text-black'}>Yes</Label>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Radio id="no" onChange={e => handleCheck(false)} name="hasButton" checked={!hasButton}
-                               value={false}/>
-                        <Label htmlFor="no" className={'!text-black'}>No</Label>
-                    </div>
+        <>
+            <BackButton href={route('admin.slider.index')} />
+            <form onSubmit={handleSubmit} className={'grid grid-cols-1 lg:grid-cols-3 p-4 gap-5'}>
+                <div>
+                    <Uploader onRemoveFile={() => setData('image', null)} photo={data?.image}
+                              onUpload={handleUpload}></Uploader>
+                    <p className={'text-red-500 text-sm'}>{errors.image}</p>
                 </div>
-                {
-                    hasButton &&
-                    <>
-                        <Input label={'Button Text'} value={data?.button_text ?? ''}
-                               onChange={e => setData('button_text', e.target.value)}
-                        />
-                        <Input label={'Button Link'} value={data?.button_link ?? ''}
-                               onChange={e => setData('button_link', e.target.value)}
-                        />
-                    </>
-                }
-                <Button loading={processing} type={'submit'} className={'rounded-md w-full'}>Submit</Button>
-            </div>
-        </form>
+                <div className={'flex flex-col gap-3 col-span-2'}>
+                    <p className={'font-medium'}>Has Button</p>
+                    <div className={'flex gap-5 mb-4'}>
+                        <div className="flex items-center gap-2">
+                            <Radio onChange={e => handleCheck(true)} id="yes" name="hasButton" value={true}
+                                   checked={hasButton}
+                                   className={'!text-black'}
+                            />
+                            <Label htmlFor="yes" className={'!text-black'}>Yes</Label>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Radio id="no" onChange={e => handleCheck(false)} name="hasButton" checked={!hasButton}
+                                   value={false}/>
+                            <Label htmlFor="no" className={'!text-black'}>No</Label>
+                        </div>
+                    </div>
+                    {
+                        hasButton &&
+                        <>
+                            <Input error={errors.button_text} label={'Button Text'} value={data?.button_text ?? ''}
+                                   onChange={e => setData('button_text', e.target.value)}
+                            />
+                            <Input error={errors.button_link} label={'Button Link'} value={data?.button_link ?? ''}
+                                   onChange={e => setData('button_link', e.target.value)}
+                            />
+                        </>
+                    }
+                    <Button loading={processing} type={'submit'} className={'rounded-md w-full'}>Submit</Button>
+                </div>
+            </form>
+        </>
     );
 };
 

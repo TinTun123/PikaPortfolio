@@ -33,7 +33,7 @@ const Index = ({courses}) => {
     return (
         <div>
             <ConfirmModal loading={loading} onCancel={ () => setDeleteModalOpen(false)} onConfirm={confirmDelete} show={deleteModalOpen} />
-            <div className={'p-4 pt-0 text-end'}>
+            <div className={'p-4 pr-0 pt-0 text-end'}>
                 <Button href={route('admin.course.create')}>Create Course</Button>
             </div>
             <div className={'p-4 bg-white flex flex-col gap-4 min-h-screen'}>

@@ -62,7 +62,7 @@ const Home = ({courses, testimonials, social, sliders, texts}) => {
                                  className="h-full flex justify-center items-end bg-gray-400 dark:bg-gray-700 dark:text-white">
                                 <div className={'mb-24'}>
                                     {
-                                        slider.has_button &&
+                                        slider.has_button && slider.button_text && slider.button_link &&
                                         <Button><a href={slider.button_link} target={'_blank'}>{slider.button_text}</a></Button>
                                     }
                                 </div>
